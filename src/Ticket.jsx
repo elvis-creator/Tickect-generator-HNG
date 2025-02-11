@@ -49,8 +49,9 @@ const Ticket = () => {
     e.preventDefault();
     if (validate()) {
       setTicketData(formData); 
+      setFormData({ fullName: "", email: "", avatar: "" });
     }
-    setTicketData("");
+    
   };
 
   return (
