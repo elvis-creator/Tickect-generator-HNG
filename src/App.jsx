@@ -1,5 +1,5 @@
 import React from 'react';
-import Ticket from './Ticket'; // Ensure you import the Ticket component properly
+import Ticket from './Ticket';
 
 function App() {
   return (

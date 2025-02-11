@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+
 const Ticket = () => {
   // State for form inputs
   const [formData, setFormData] = useState({
@@ -53,32 +54,35 @@ const Ticket = () => {
 
   return (
     <div className="ticket-container">
-      <div className="ticket-form">
-        <h2>Conference Ticket Generator</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Full Name:</label>
-            <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
-            {errors.fullName && <p className="error">{errors.fullName}</p>}
-          </div>
+      {/* Show the form only if no ticket is generated */}
+      {!ticketData && (
+        <div className="ticket-form">
+          <h2>Conference Ticket Generator</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Full Name:</label>
+              <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} />
+              {errors.fullName && <p className="error">{errors.fullName}</p>}
+            </div>
 
-          <div className="form-group">
-            <label>Email:</label>
-            <input type="email" name="email" value={formData.email} onChange={handleChange} />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div>
+            <div className="form-group">
+              <label>Email:</label>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} />
+              {errors.email && <p className="error">{errors.email}</p>}
+            </div>
 
-          <div className="form-group">
-            <label>Avatar URL:</label>
-            <input type="text" name="avatar" value={formData.avatar} onChange={handleChange} />
-            {errors.avatar && <p className="error">{errors.avatar}</p>}
-          </div>
+            <div className="form-group">
+              <label>Avatar URL:</label>
+              <input type="text" name="avatar" value={formData.avatar} onChange={handleChange} />
+              {errors.avatar && <p className="error">{errors.avatar}</p>}
+            </div>
 
-          <button type="submit" className="submit-btn">Generate Ticket</button>
-        </form>
-      </div>
+            <button type="submit" className="submit-btn">Generate Ticket</button>
+          </form>
+        </div>
+      )}
 
-      {/* Display Ticket if Generated */}
+      {/* Show only the ticket after submission */}
       {ticketData && (
         <div className="generated-ticket">
           <h3>🎟 Your Ticket</h3>
