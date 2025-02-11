@@ -50,6 +50,7 @@ const Ticket = () => {
     if (validate()) {
       setTicketData(formData); 
     }
+    setTicketData("");
   };
 
   return (
